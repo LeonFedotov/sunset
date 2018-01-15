@@ -1,9 +1,26 @@
 {
   "name": "sunset",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/index.js",
   "license": "MIT",
   "description": "tells you if you will make it to the closest shore in time for sunset",
   "repository": "https://github.com/LeonFedotov/sunset",
-  "author": "Leon Fedotov"
+  "author": "Leon Fedotov",
+  "scripts": {
+    "start": "node -r dotenv/config src",
+    "test": "mocha"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^4.1.0"
+  },
+  "dependencies": {
+    "debug": "^3.1.0",
+    "dotenv": "^4.0.0",
+    "eslint_d": "^5.2.2",
+    "global": "^4.3.2",
+    "luxon": "^0.3.1",
+    "superagent": "^3.8.2",
+    "winston": "^3.0.0-rc1"
+  }
 }
