@@ -1,5 +1,5 @@
-const log = require('debug')('shore:log')
-const error = require('debug')('shore:error')
+const log = require('debug')('app:shore:log')
+const error = require('debug')('app:shore:error')
 const { Duration } = require('luxon')
 const _ = require('lodash')
 const googleMaps = require('@google/maps')
@@ -27,6 +27,7 @@ const getDrivingTime = async (source, target) => {
 }
 
 const getBeachLocation = async ({lat, lng}) => {
+    log('Getting close city for beach', {lat, lng})
     const city = await client
         .reverseGeocode({latlng: [lat, lng]})
         .asPromise()
@@ -37,6 +38,7 @@ const getBeachLocation = async ({lat, lng}) => {
             .get('long_name', '')
             .value()
         )
+        .then(city => (log(`Found city close by: ${city}`), city))
 
     return `Beach ${city}`
 }
