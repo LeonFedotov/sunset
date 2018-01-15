@@ -1,8 +1,5 @@
 const { expect } = require('chai')
 const request = require('superagent')
-const debug = require('debug')
-const [error, log] = [debug('app:error'), debug('app:log')]
-
 const { getSunsetTime } = require('../src/sunset')
 
 describe('Sunset', function () {

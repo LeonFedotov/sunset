@@ -20,6 +20,7 @@
     "dotenv": "^4.0.0",
     "eslint_d": "^5.2.2",
     "global": "^4.3.2",
+    "lodash": "^4.17.4",
     "luxon": "^0.3.1",
     "superagent": "^3.8.2",
     "winston": "^3.0.0-rc1"
