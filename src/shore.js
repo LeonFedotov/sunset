@@ -12,8 +12,8 @@ const addressFromCoords = async ({lat, lng}) => await client
 
 const getDrivingTime = async (source, target) => {
     log('getting driving time for ', {source, target})
-    const origin = await addressFromCoords(source)
-    const destination = await addressFromCoords(target)
+    const origin = _.isString(source) ? source : await addressFromCoords(source)
+    const destination = _.isString(target) ? target : await addressFromCoords(target)
     return await client.distanceMatrix({
         origins: [origin],
         destinations: [destination],
