@@ -5,7 +5,7 @@ const [error, log] = [debug('app:error'), debug('app:log')]
 
 const { getSunsetTime } = require('../src/sunset')
 
-describe('sunset', function () {
+describe('Sunset', function () {
     it('should return sunset time for given location', async function() {
         const location = {lat: 32.0563392, lng: 34.7615647}
 
