@@ -1,0 +1,9 @@
+{
+  "name": "sunset",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "description": "tells you if you will make it to the closest shore in time for sunset",
+  "repository": "https://github.com/LeonFedotov/sunset",
+  "author": "Leon Fedotov"
+}
