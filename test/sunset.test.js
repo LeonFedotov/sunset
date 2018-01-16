@@ -3,10 +3,11 @@ const request = require('superagent')
 const { getSunsetTime } = require('../src/sunset')
 const _ = require('lodash')
 const {DateTime} = require('luxon')
-
+const {geocode} = require('../src/utils')
 describe('Sunset', function () {
     it('should return sunset time for given location', async function() {
-        const location = {lat: 32.0563392, lng: 34.7615647}
+
+        const location = await geocode('bugrashov 1 tel aviv')
 
         const sunset = await request
             .get('https://api.sunrise-sunset.org/json')
