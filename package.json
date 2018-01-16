@@ -1,20 +1,22 @@
 {
   "name": "sunset",
   "version": "1.0.0",
-  "main": "src/index.js",
+  "main": "cloud.js",
   "license": "MIT",
   "description": "Lets you know if you will make it to the closest shore in time for sunset.",
   "repository": "https://github.com/LeonFedotov/sunset",
   "author": "Leon Fedotov",
   "scripts": {
     "start": "node -r dotenv/config src",
-    "test": "mocha -r dotenv/config"
+    "test": "mocha -r dotenv/config",
+    "build": "babel ./src -d ./lib"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "chai": "^4.1.2",
-    "mocha": "^4.1.0",
-    "babel-cli": "^6.26.0"
+    "mocha": "^4.1.0"
   },
   "dependencies": {
     "@google/maps": "^0.4.5",
