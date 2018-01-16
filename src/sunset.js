@@ -1,22 +1,26 @@
 const request = require('superagent')
 const log = require('debug')('app:sunset:log')
 const error = require('debug')('app:sunset:error')
-const {DateTime: dt} = require('luxon')
+const { DateTime } = require('luxon')
+const { getLocalTimezone } = require('./utils')
 
-const getSunsetTime = async (location) => (
-    log('Requesting sunset time for location', location),
-    await request
+const getSunsetTime = async (location) => {
+    const zone = await getLocalTimezone(location)
+    const date = DateTime.local().setZone(zone).toISODate()
+
+    log('Requesting sunset time for location', {location, date: DateTime.local().setZone(zone)})
+    return await request
         .get('https://api.sunrise-sunset.org/json')
-        .query({date: dt.local().toISODate(), ...location})
-        .then(({body:{ results: {sunset}}}) => dt
-                .fromString(sunset, 'h:mm:ss a')
-                .setZone('utc', {keepLocalTime: true})
-                .toLocal()
+        .query({date, ...location})
+        .then(({body:{ results: {sunset}}}) => DateTime
+            .fromFormat(`${date} ${sunset}`, 'yyyy-MM-dd h:mm:ss a', {zone: 'utc'})
+            .setZone(zone)
         )
         .then(time => (
-            log(`Sunset is at ${time.toISO()}`),
+            log(`Sunset is at ${time}`),
             time
         ))
         .catch(error)
-)
+}
+
 module.exports = { getSunsetTime }
