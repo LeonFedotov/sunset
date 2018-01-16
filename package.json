@@ -11,18 +11,17 @@
     "test": "mocha -r dotenv/config"
   },
   "devDependencies": {
+    "babel-preset-env": "^1.6.1",
     "chai": "^4.1.2",
-    "mocha": "^4.1.0"
+    "mocha": "^4.1.0",
+    "babel-cli": "^6.26.0"
   },
   "dependencies": {
     "@google/maps": "^0.4.5",
     "debug": "^3.1.0",
     "dotenv": "^4.0.0",
-    "eslint_d": "^5.2.2",
-    "global": "^4.3.2",
     "lodash": "^4.17.4",
     "luxon": "^0.3.1",
-    "superagent": "^3.8.2",
-    "winston": "^3.0.0-rc1"
+    "superagent": "^3.8.2"
   }
 }
